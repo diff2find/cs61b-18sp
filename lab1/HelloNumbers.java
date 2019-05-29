@@ -8,5 +8,6 @@ public class HelloNumbers {
             i = i + 1;
             System.out.print(x + " ");
         }
+        System.out.println();
     }
 }
