@@ -1,8 +1,23 @@
 /** Class that determines whether or not a year is a leap year.
- *  @author YOUR NAME HERE
+ *  @author Yiyi Chen
  */
 public class LeapYear {
 
+    /** Helper function to figure out whether a year is a leap year or not
+     * @param year to be analyzed
+     * @return boolean, iff is a leap year return true, otherwise return false
+    */
+    private static Boolean isLeapYear(int year) {
+        if (year % 400 == 0) {
+            return true;
+        }
+        else if (year % 4 == 0 && year % 100 != 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
      */
