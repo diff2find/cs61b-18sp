@@ -5,10 +5,10 @@ public class NBody {
 		String filename = args[2];
 		double radius = readRadius(filename);
 		Planet[] planets = readPlanets(filename);	
-
+		StdAudio.play("./audio/2001.mid");
 		StdDraw.enableDoubleBuffering();
 		/** Sets up the universe so it goes from 
-		  * -100, -100 up to 100, 100 */
+		  * -radius, -radius up to radius, radius */
 		StdDraw.setScale(-radius, radius);
 		StdDraw.picture(0, 0, "images/starfield.jpg");
 
@@ -34,8 +34,13 @@ public class NBody {
 			StdDraw.pause(10);
 			StdDraw.clear();
 		}
-		StdDraw.pause(2000);
-
+		StdOut.printf("%d\n", planets.length);
+		StdOut.printf("%.2e\n", radius);
+		for (int i = 0; i < planets.length; i++) {
+		    StdOut.printf("%11.4e %11.4e %11.4e %11.4e %11.4e %12s\n",
+		                  planets[i].xxPos, planets[i].yyPos, planets[i].xxVel,
+		                  planets[i].yyVel, planets[i].mass, planets[i].imgFileName);   
+		}
 	}
 
 	public static double readRadius(String filePath) {
@@ -55,5 +60,4 @@ public class NBody {
 		return planets;
 	}
 
-	
 }
